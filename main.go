@@ -49,5 +49,8 @@ func main() {
 
 		c.String(http.StatusOK, fmt.Sprintf("%+v", ages))
 	})
-	r.Run("0.0.0.0:1000")
+
+	port := os.Getenv("PORT")
+	addr := fmt.Sprintf("0.0.0.0:%v", port)
+	r.Run(addr)
 }
